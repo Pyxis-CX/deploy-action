@@ -54,7 +54,7 @@ const main = async () => {
   }
 
   const currentVersions = await getCurrentVersions(runContext)
-  core.debug('currentVersions', JSON.stringify(currentVersions, undefined, 2))
+  core.debug('currentVersions initial', JSON.stringify(currentVersions, undefined, 2))
 
   if (!Array.isArray(currentVersions) || !currentVersions.length) {
     return core.setFailed('Unable to determine current versions.')
