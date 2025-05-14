@@ -84,8 +84,11 @@ const main = async () => {
     while (retriesRemaining >= 0) {
       const newVersions = await getCurrentVersions(runContext)
       core.debug(`New versions: ${JSON.stringify(newVersions, undefined, 2)}`)
-      if (newVersions[newVersions.length - 1] !== latestVersion) {
-        newestVersion = newVersions[newVersions.length - 1]
+      // Find all versions greater than latestVersion
+      const greaterVersions = newVersions.filter(v => v > latestVersion)
+      if (greaterVersions.length > 0) {
+        newestVersion = Math.max(...greaterVersions)
+        core.debug(`Detected new version: ${newestVersion} (greater than previous latest: ${latestVersion})`)
         break
       }
       await retryDelayWait()
