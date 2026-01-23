@@ -34,7 +34,7 @@
     "@actions/github": "^6.0.0",
     "@actions/http-client": "^2.2.1",
     "@octokit/rest": "^20.1.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "to-readable-stream": "^4.0.0"
   }
 }
